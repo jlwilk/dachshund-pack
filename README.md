@@ -1,5 +1,7 @@
 # Dachshund Pack
 
+**Play:** https://jlwilk.github.io/dachshund-pack/
+
 "Dachshund" means "badger dog". Start with one pup, steer through gates and shoot open crates to grow your pack, and let them fight their way through waves of badgers to the Badger King.
 
 ## How to play
