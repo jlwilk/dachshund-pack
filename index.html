@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dachshund Pack</title>
+  <style>
+    :root {
+      --bg: #f4ead9;
+      --ink: #2a1d14;
+      --muted: #6b5a4b;
+      --card: #fffaf1;
+      --accent: #c4562a;
+      --accent-ink: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1d1612;
+        --ink: #f3e7d6;
+        --muted: #b9a68f;
+        --card: #2a201a;
+        --accent: #e0703f;
+        --accent-ink: #1d1612;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+      overscroll-behavior: none;
+    }
+    .stage {
+      height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+      position: relative;
+      touch-action: none;
+    }
+    canvas { display: block; border-radius: 12px; box-shadow: 0 4px 24px rgb(0 0 0 / 0.25); }
+    .overlay { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; }
+    .overlay[hidden] { display: none; }
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px 24px;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.3);
+    }
+    .card h1 { margin: 0 0 8px; font-size: 1.5rem; }
+    .card p { margin: 0 0 16px; color: var(--muted); }
+    .card button {
+      font: inherit;
+      font-weight: 700;
+      border: 0;
+      border-radius: 999px;
+      min-height: 46px;
+      padding: 10px 30px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      cursor: pointer;
+    }
+    .card small { display: block; margin-top: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <canvas id="board" aria-label="Game board"></canvas>
+    <div class="overlay" id="overlay">
+      <div class="card">
+        <h1 id="title">Dachshund Pack</h1>
+        <p id="message"></p>
+        <button type="button" id="go">Run!</button>
+        <small>Drag or move the mouse to steer · ← → also work</small>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
