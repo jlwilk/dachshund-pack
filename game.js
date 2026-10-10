@@ -7,7 +7,7 @@
 import { LEVEL } from './level.js';
 
 export const LANE_HALF = 5;
-export const RUN_SPEED = 6;
+export const RUN_SPEED = 4;
 export const STEER_SPEED = 9; // how fast the pack slides sideways toward where you're steering
 export const MAX_PUPS = 120;
 export const PUP_RADIUS = 0.3;
@@ -28,12 +28,12 @@ export const BREEDS = {
 };
 
 export const BADGERS = {
-  badger: { hp: 2, speed: 2.5, radius: 0.4 },
-  honey: { hp: 2, speed: 5, radius: 0.35 }, // honey badger don't care
-  armored: { hp: 8, speed: 1.8, radius: 0.5 }, // bucket helmet
+  badger: { hp: 2, speed: 1.6, radius: 0.4 },
+  honey: { hp: 2, speed: 3.2, radius: 0.35 }, // honey badger don't care
+  armored: { hp: 6, speed: 1.2, radius: 0.5 }, // bucket helmet
 };
 
-export const BOSS = { hp: 400, radius: 1.6, speed: 1, throwEvery: 1.4, clodSpeed: 10, stopShort: 9 };
+export const BOSS = { hp: 220, radius: 1.6, speed: 0.6, throwEvery: 2.2, clodSpeed: 7, stopShort: 9 };
 
 const PROJECTILES = {
   bark: { speed: 14, radius: 0.2, life: 0.7 },

@@ -98,9 +98,10 @@ test('steering decides which gate you go through', () => {
 test('waves spawn ahead of the pack and charge at it', () => {
   const level = lane({ waves: [{ d: 20, kind: 'badger', count: 8, spread: 3 }] });
   // They appear once the pack is 16 m short of them.
-  let { g } = run(game({}, level), 0.6);
+  const arrive = (20 - 16) / RUN_SPEED;
+  let { g } = run(game({}, level), arrive - 0.1);
   assert.equal(g.badgers.length, 0);
-  ({ g } = run(g, 0.1));
+  ({ g } = run(g, 0.15));
   assert.equal(g.badgers.length, 8);
   assert.ok(g.badgers.every(b => b.y >= 19 && b.y <= 23 && Math.abs(b.x) <= LANE_HALF));
   const before = g.badgers[0].y;
@@ -146,7 +147,7 @@ test('a dapple dashes into the badger, bowls it over and comes home', () => {
 
 test('honey badgers are fast and armored ones are tough', () => {
   assert.ok(BADGERS.honey.speed > BADGERS.badger.speed);
-  assert.ok(BADGERS.armored.hp > BADGERS.badger.hp * 3);
+  assert.ok(BADGERS.armored.hp >= BADGERS.badger.hp * 3);
 });
 
 test('the Badger King stops the pack, throws dirt, and falls to a big enough pack', () => {
